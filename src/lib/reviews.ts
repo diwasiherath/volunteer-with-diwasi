@@ -9,7 +9,6 @@ export const DEFAULT_REVIEWS: VolunteerReview[] = [
     reviewText: "Teaching conversational English to kids at the local school was the highlight of my trip. The community was so welcoming, and Diwasi Herath and his team made sure we had everything we needed to succeed. The smiles on the kids' faces are something I will never forget!",
     date: "2026-05-15",
     approved: true,
-    packageTier: "premium",
     country: "United Kingdom"
   },
   {
@@ -20,7 +19,6 @@ export const DEFAULT_REVIEWS: VolunteerReview[] = [
     reviewText: "Getting into the mud and learning traditional rice cultivation was challenging but incredibly rewarding. The local farming families taught us centuries-old techniques. The premium homestay food was absolute heaven after a hard day of work!",
     date: "2026-06-02",
     approved: true,
-    packageTier: "premium",
     country: "United States"
   },
   {
@@ -31,7 +29,6 @@ export const DEFAULT_REVIEWS: VolunteerReview[] = [
     reviewText: "Loved working in the community micro-bakery! The wood-fired ovens and local recipes are fascinating. It was great to support small local entrepreneurs. I recommend the Ultimate package for the extra comfort and transport.",
     date: "2026-04-20",
     approved: true,
-    packageTier: "ultimate",
     country: "Italy"
   },
   {
@@ -42,7 +39,6 @@ export const DEFAULT_REVIEWS: VolunteerReview[] = [
     reviewText: "Teaching English to the Buddhist monks at the monastic school was a deeply spiritual and peaceful experience. The monks are eager learners and highly respectful. I gained a lot of perspective on mindfulness and local culture.",
     date: "2026-05-30",
     approved: true,
-    packageTier: "standard",
     country: "India"
   },
   {
@@ -53,7 +49,6 @@ export const DEFAULT_REVIEWS: VolunteerReview[] = [
     reviewText: "Spending time with the elderly at the care home was a touching experience. We organized arts and crafts, physical exercises, and shared stories. The project was well-organized, and the staff are incredibly dedicated.",
     date: "2026-06-10",
     approved: true,
-    packageTier: "standard",
     country: "Canada"
   },
   {
@@ -64,7 +59,6 @@ export const DEFAULT_REVIEWS: VolunteerReview[] = [
     reviewText: "The cultural exploration track was a fantastic dive into Sri Lanka's heritage. From learning local cooking to exploring ancient temples, every day was a new adventure. The ultimate package was worth every cent for the custom tours.",
     date: "2026-05-01",
     approved: true,
-    packageTier: "ultimate",
     country: "Germany"
   }
 ];
@@ -190,12 +184,6 @@ export function mapRowToReview(row: Record<string, string>, index: number): Volu
     ? ["yes", "true", "approved", "y", "t", "1"].includes(approvedStr.toLowerCase().trim())
     : true;
 
-  const rawPackage = findVal(["package", "tier", "price"]);
-  let packageTier = "standard";
-  const lowerPkg = rawPackage.toLowerCase();
-  if (lowerPkg.includes("premium")) packageTier = "premium";
-  else if (lowerPkg.includes("ultimate")) packageTier = "ultimate";
-
   const country = findVal(["country", "nation", "origin", "home"]) || "Global Citizen";
 
   return {
@@ -206,7 +194,6 @@ export function mapRowToReview(row: Record<string, string>, index: number): Volu
     reviewText,
     date,
     approved,
-    packageTier,
     country
   };
 }
@@ -215,8 +202,8 @@ export function mapRowToReview(row: Record<string, string>, index: number): Volu
 const LKEY_REVIEWS = "diwasi_local_reviews";
 const LKEY_SHEET_URL = "diwasi_gs_csv_url";
 
-export const DEFAULT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdLMQ_SvQ8e4iHz2AFEGCUJZRsAbQK0qfHX-yv67RKsj9cvsw/viewform?usp=preview";
-export const DEFAULT_SHEET_URL = "https://docs.google.com/spreadsheets/d/1RlQ60yO_xUO3mRoytSKH4NQXaHyq1vlQuM2lEvms9W8/edit?usp=sharing";
+export const DEFAULT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfZ2URziLgNaCYF_Cs9HugI6f7CCdfLFDOyA2n0llIgPucO8A/viewform?usp=header";
+export const DEFAULT_SHEET_URL = "https://docs.google.com/spreadsheets/d/18EGTsIrBD51XQpJWUSiwjQX_V30w43vFbFnzJH8g9pw/edit?usp=sharing";
 
 // Automatically cleans Google Sheet URLs to export as CSV
 export function cleanGoogleSheetUrl(url: string): string {

@@ -29,6 +29,5 @@ export interface VolunteerReview {
   reviewText: string;
   date: string;
   approved: boolean;
-  packageTier: string;
   country: string;
 }

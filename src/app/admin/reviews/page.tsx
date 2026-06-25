@@ -311,7 +311,7 @@ export default function AdminReviewsPage() {
 
       <main className="admin-layout">
         {/* Workflow Diagram */}
-        <div className="workflow-diagram reveal">
+        <div className="workflow-diagram">
           <div className="wf-node">
             <h4>1. Volunteer</h4>
             <p>Fills Google Form review details</p>
@@ -335,7 +335,7 @@ export default function AdminReviewsPage() {
 
         <div className="admin-grid">
           {/* Main workspace */}
-          <section className="reveal">
+          <section>
             {activeUrl ? (
               <div className="admin-card">
                 <h2>Live Google Sheets Feed</h2>
@@ -467,7 +467,7 @@ export default function AdminReviewsPage() {
           </section>
 
           {/* Config Sidebar */}
-          <aside className="reveal">
+          <aside>
             <div className="admin-card">
               <h2>Spreadsheet Config</h2>
               <form onSubmit={handleSaveUrl} className="config-form">

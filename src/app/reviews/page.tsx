@@ -6,11 +6,6 @@ import Footer from "@/components/Footer";
 import { VolunteerReview } from "@/types";
 import { fetchApprovedReviews, saveLocalReview, TRACK_NAMES, DEFAULT_FORM_URL, cleanGoogleFormUrl } from "@/lib/reviews";
 
-const PACKAGES = {
-  standard: "Standard Tier",
-  premium: "Premium Tier",
-  ultimate: "Ultimate Tier"
-};
 
 export default function ReviewsPage() {
   const [reviews, setReviews] = useState<VolunteerReview[]>([]);
@@ -322,11 +317,6 @@ export default function ReviewsPage() {
           border: 1px solid rgba(0, 128, 128, 0.15);
         }
 
-        .badge-tier {
-          background: rgba(255, 191, 0, 0.08);
-          color: #d49c00;
-          border: 1px solid rgba(255, 191, 0, 0.2);
-        }
 
         /* Modal Custom Styling Override */
         .modal-close {
@@ -398,7 +388,7 @@ export default function ReviewsPage() {
 
       <main className="reviews-layout">
         {/* Sidebar Controls */}
-        <aside className="reveal">
+        <aside>
           <div className="stats-card">
             <h3>Community Rating</h3>
             <div className="stats-large">
@@ -491,7 +481,7 @@ export default function ReviewsPage() {
         </aside>
 
         {/* Content area */}
-        <section className="reveal">
+        <section>
           {/* Write review callout */}
           <div className="write-review-hero">
             <h2 style={{ fontSize: "1.3rem", fontWeight: "700", color: "var(--dark)" }}>
@@ -553,9 +543,7 @@ export default function ReviewsPage() {
                     <span className="review-badge badge-track">
                       {TRACK_NAMES[rev.trackId] || rev.trackId}
                     </span>
-                    <span className="review-badge badge-tier">
-                      {PACKAGES[rev.packageTier as keyof typeof PACKAGES] || rev.packageTier}
-                    </span>
+
                   </div>
                 </article>
               ))}

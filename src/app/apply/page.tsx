@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 // Configure your Google Form URL here. 
 // If it contains the placeholder 'example_apply_form_id', the page will display the native Application Wizard instead.
-const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSf2bUQMkMiUrqE1VTApG7E-w1_rDJ-5eE7Y1JvNeKH3ibad6Q/viewform?embedded=true";
+const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfExQQalo2HSWECJXniSlhsmI4K1oRbEw4abL45i2FAfsUhDA/viewform?usp=header";
 
 const TRACKS = [
   { id: "school-dev", name: "School Development Project", desc: "Support public schools with classroom improvements, teaching English, and leading recreation." },
