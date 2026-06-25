@@ -54,6 +54,59 @@ export default function Navbar({ currentPage }: NavbarProps) {
     { id: "contact", label: "Contact", path: "/contact" }
   ];
 
+  const linkIcons: Record<string, React.ReactNode> = {
+    home: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+    ),
+    about: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 16v-4" />
+        <path d="M12 8h.01" />
+      </svg>
+    ),
+    projects: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+      </svg>
+    ),
+    places: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
+    ),
+    gallery: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+        <circle cx="9" cy="9" r="2" />
+        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+      </svg>
+    ),
+    reviews: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      </svg>
+    ),
+    contact: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      </svg>
+    ),
+    apply: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <line x1="19" y1="8" x2="19" y2="14" />
+        <line x1="22" y1="11" x2="16" y2="11" />
+      </svg>
+    )
+  };
+
   return (
     <>
       {/* Blurred background overlay for mobile drawer */}
@@ -98,6 +151,11 @@ export default function Navbar({ currentPage }: NavbarProps) {
             to {
               padding-block: 10px;
             }
+          }
+
+          /* Elevate header stacking context when menu is open to render drawer above overlay */
+          .site-header.menu-open {
+            z-index: 1080 !important;
           }
 
           /* Backdrop Blur Overlay for mobile drawer */
@@ -288,10 +346,10 @@ export default function Navbar({ currentPage }: NavbarProps) {
             top: 12px;
           }
 
-          /* Morph to X (Fallback/Transition state before it hides) */
+          /* Morph to X (Open state: changes to high contrast white color on solid teal background) */
           .site-header .nav-toggle.open span:nth-child(1) {
             transform: translateY(6px) rotate(45deg);
-            background-color: var(--accent);
+            background-color: var(--white) !important;
           }
 
           .site-header .nav-toggle.open span:nth-child(2) {
@@ -300,11 +358,19 @@ export default function Navbar({ currentPage }: NavbarProps) {
 
           .site-header .nav-toggle.open span:nth-child(3) {
             transform: translateY(-6px) rotate(-45deg);
-            background-color: var(--accent);
+            background-color: var(--white) !important;
           }
 
-          /* Drawer Close Button (inside the drawer top-right) */
-          .site-header .drawer-close-btn {
+          /* Hide drawer components on desktop */
+          .site-header .nav-link-icon {
+            display: none;
+          }
+
+          .site-header .drawer-brand-header {
+            display: none;
+          }
+
+          .site-header .mobile-drawer-footer {
             display: none;
           }
 
@@ -324,6 +390,20 @@ export default function Navbar({ currentPage }: NavbarProps) {
           }
 
           @media (max-width: 960px) {
+            /* Fix header opacity on mobile/tablet: Opaque white background */
+            .site-header {
+              background-color: #ffffff !important;
+              backdrop-filter: none !important;
+              -webkit-backdrop-filter: none !important;
+              box-shadow: 0 4px 20px rgba(0, 80, 80, 0.08) !important;
+            }
+
+            /* Dim and disable interaction with the background logo when menu is open */
+            .site-header.menu-open .logo {
+              opacity: 0.15;
+              pointer-events: none;
+            }
+
             /* Adjust logo display on tablets and mobiles */
             .site-header .logo-text-desktop {
               display: none;
@@ -345,44 +425,44 @@ export default function Navbar({ currentPage }: NavbarProps) {
               display: flex;
             }
 
-            /* Hide floating trigger when menu is open to prevent overlapping styles */
+            /* High contrast styling for open toggle button */
             .site-header .nav-toggle.open {
-              opacity: 0;
-              pointer-events: none;
+              background: var(--primary) !important;
+              border-color: var(--primary) !important;
+              box-shadow: 0 4px 10px rgba(0, 128, 128, 0.2);
             }
 
-            /* Close Button inside Drawer */
-            .site-header .drawer-close-btn {
+            /* Drawer Brand Header inside Menu */
+            .site-header .drawer-brand-header {
               display: flex;
-              position: absolute;
-              top: 20px;
-              right: 20px;
-              width: 44px;
-              height: 44px;
-              border-radius: 50%;
-              background: rgba(0, 128, 128, 0.05);
-              border: 1px solid rgba(0, 128, 128, 0.1);
+              flex-direction: column;
+              padding: 0 16px 20px 16px;
+              border-bottom: 1px solid rgba(0, 128, 128, 0.08);
+              margin-bottom: 15px;
+            }
+
+            .site-header .drawer-logo-title {
+              font-family: var(--font-display), var(--font-outfit), sans-serif;
+              font-size: 20px;
+              font-weight: 800;
+              letter-spacing: -0.5px;
+              line-height: 1.2;
+              background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+
+            .site-header .drawer-logo-subtitle {
+              font-family: var(--font-sans), var(--font-inter), sans-serif;
+              font-size: 9px;
+              font-weight: 600;
+              letter-spacing: 0.5px;
               color: var(--primary);
-              align-items: center;
-              justify-content: center;
-              cursor: pointer;
-              transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-              padding: 0;
-              z-index: 1100;
+              opacity: 0.8;
+              margin-top: 1px;
             }
 
-            .site-header .drawer-close-btn:hover {
-              background: rgba(0, 128, 128, 0.1);
-              border-color: rgba(0, 128, 128, 0.2);
-              color: var(--accent-hover);
-              transform: scale(1.05);
-            }
-
-            .site-header .drawer-close-btn:active {
-              transform: scale(0.95);
-            }
-
-            /* Drawers and mobile layout override */
+            /* Drawers and mobile layout override (solid background, no bleed through) */
             .site-header .nav-menu {
               position: fixed;
               top: 0;
@@ -390,16 +470,16 @@ export default function Navbar({ currentPage }: NavbarProps) {
               width: 85%;
               max-width: 360px;
               height: 100vh;
-              background: rgba(255, 255, 255, 0.88);
-              backdrop-filter: blur(25px) saturate(180%);
-              -webkit-backdrop-filter: blur(25px) saturate(180%);
+              background: #ffffff !important;
+              backdrop-filter: none !important;
+              -webkit-backdrop-filter: none !important;
               box-shadow: -10px 0 35px rgba(0, 40, 40, 0.1);
               border-left: 1px solid rgba(0, 128, 128, 0.12);
               flex-direction: column;
               justify-content: space-between;
               align-items: stretch;
               gap: 0;
-              padding: 100px 30px 40px 30px;
+              padding: 95px 24px 30px 24px;
               transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
               z-index: 1080;
               overflow-y: auto;
@@ -415,7 +495,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
             .site-header .nav-menu-links {
               display: flex;
               flex-direction: column;
-              gap: 12px;
+              gap: 8px;
               width: 100%;
             }
 
@@ -432,14 +512,25 @@ export default function Navbar({ currentPage }: NavbarProps) {
               transition-delay: calc(var(--item-index) * 60ms);
             }
 
-            /* Mobile Links Styling */
+            /* Mobile Links Styling with SVGs */
+            .site-header .nav-link-icon {
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              color: inherit;
+              opacity: 0.75;
+              transition: transform 0.3s ease;
+            }
+
             .site-header .nav-menu .nav-link {
-              display: block;
+              display: flex;
+              align-items: center;
+              gap: 14px;
               width: 100%;
-              padding: 12px 18px;
-              font-size: 16px;
+              padding: 11px 16px;
+              font-size: 15px;
               font-weight: 600;
-              border-radius: 12px;
+              border-radius: 10px;
               transition: all 0.3s ease;
               color: var(--dark);
             }
@@ -448,6 +539,12 @@ export default function Navbar({ currentPage }: NavbarProps) {
               background: rgba(0, 128, 128, 0.04);
               transform: translateX(5px);
               color: var(--primary);
+            }
+
+            .site-header .nav-menu .nav-link:hover .nav-link-icon {
+              transform: scale(1.1);
+              opacity: 1;
+              color: var(--accent-hover);
             }
 
             .site-header .nav-menu .nav-link::after {
@@ -459,19 +556,24 @@ export default function Navbar({ currentPage }: NavbarProps) {
               background: rgba(0, 128, 128, 0.08);
               color: var(--primary);
               border-left: 4px solid var(--primary);
-              border-radius: 0 12px 12px 0;
-              padding-left: 14px;
+              border-radius: 0 10px 10px 0;
+              padding-left: 12px;
+            }
+
+            .site-header .nav-menu .nav-link.active .nav-link-icon {
+              opacity: 1;
+              color: var(--primary);
             }
 
             /* Mobile Volunteer CTA Button override */
             .site-header .nav-menu .nav-link-apply {
               text-align: center;
-              margin-top: 15px;
+              margin-top: 10px;
               width: 100%;
-              padding: 14px 20px !important;
+              padding: 12px 20px !important;
               box-shadow: 0 4px 12px rgba(0, 128, 128, 0.15);
               font-size: 15px;
-              border-radius: 14px;
+              border-radius: 10px;
             }
             
             .site-header .nav-menu .nav-link-apply:hover {
@@ -486,17 +588,39 @@ export default function Navbar({ currentPage }: NavbarProps) {
 
             /* Mobile Footer elements inside drawer */
             .site-header .mobile-drawer-footer {
-              margin-top: auto;
-              padding-top: 30px;
-              border-top: 1px solid rgba(0, 128, 128, 0.1);
               display: flex;
+              margin-top: auto;
+              padding-top: 20px;
+              border-top: 1px solid rgba(0, 128, 128, 0.1);
               flex-direction: column;
-              gap: 15px;
+              gap: 12px;
               width: 100%;
             }
 
+            .site-header .drawer-card {
+              background: linear-gradient(135deg, rgba(0, 128, 128, 0.05) 0%, rgba(255, 191, 0, 0.03) 100%);
+              border: 1px solid rgba(0, 128, 128, 0.08);
+              padding: 12px;
+              border-radius: 10px;
+            }
+
+            .site-header .drawer-card-title {
+              font-size: 13px;
+              font-weight: 700;
+              color: var(--primary);
+              margin: 0 0 3px 0;
+            }
+
+            .site-header .drawer-card-text {
+              font-size: 11px;
+              color: var(--dark);
+              opacity: 0.75;
+              margin: 0;
+              line-height: 1.35;
+            }
+
             .site-header .drawer-email {
-              font-size: 14px;
+              font-size: 13.5px;
               color: var(--primary);
               text-decoration: none;
               font-weight: 500;
@@ -512,13 +636,13 @@ export default function Navbar({ currentPage }: NavbarProps) {
 
             .site-header .drawer-socials {
               display: flex;
-              gap: 15px;
-              margin-top: 5px;
+              gap: 12px;
+              margin-top: 2px;
             }
 
             .site-header .drawer-social-icon {
-              width: 38px;
-              height: 38px;
+              width: 36px;
+              height: 36px;
               border-radius: 50%;
               background: rgba(0, 128, 128, 0.05);
               display: flex;
@@ -535,10 +659,10 @@ export default function Navbar({ currentPage }: NavbarProps) {
             }
 
             .site-header .drawer-location {
-              font-size: 12px;
+              font-size: 11.5px;
               color: var(--dark);
               opacity: 0.6;
-              margin-top: 5px;
+              margin-top: 2px;
               display: flex;
               align-items: center;
               gap: 5px;
@@ -571,14 +695,11 @@ export default function Navbar({ currentPage }: NavbarProps) {
           
           <nav id="primaryNav" className="nav-menu-wrapper">
             <ul id="nav-menu" className={`nav-menu ${navOpen ? "open" : ""}`}>
-              {/* Dedicated High-Contrast Close Button inside the Drawer on Mobile */}
-              <button 
-                className="drawer-close-btn" 
-                onClick={() => setNavOpen(false)}
-                aria-label="Close navigation menu"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-              </button>
+              {/* Dedicated Branding inside mobile drawer */}
+              <div className="drawer-brand-header">
+                <span className="drawer-logo-title">DIWASI</span>
+                <span className="drawer-logo-subtitle">Volunteer Sri Lanka</span>
+              </div>
 
               <div className="nav-menu-links">
                 {navLinks.map((link, index) => (
@@ -592,6 +713,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
                       aria-current={currentPage === link.id ? "page" : undefined}
                       onClick={() => setNavOpen(false)}
                     >
+                      <span className="nav-link-icon">{linkIcons[link.id]}</span>
                       {link.label}
                     </Link>
                   </li>
@@ -603,6 +725,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
                     aria-current={currentPage === "apply" ? "page" : undefined}
                     onClick={() => setNavOpen(false)}
                   >
+                    <span className="nav-link-icon">{linkIcons.apply}</span>
                     Volunteer Application
                   </Link>
                 </li>
@@ -610,6 +733,10 @@ export default function Navbar({ currentPage }: NavbarProps) {
 
               {/* Mobile Drawer Footer - Only visible on media query */}
               <div className="mobile-drawer-footer">
+                <div className="drawer-card">
+                  <p className="drawer-card-title">Ready to volunteer?</p>
+                  <p className="drawer-card-text">Join us in Sri Lanka and create impact that lasts a lifetime.</p>
+                </div>
                 <a href="mailto:diwasicherath@gmail.com" className="drawer-email">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                   diwasicherath@gmail.com
