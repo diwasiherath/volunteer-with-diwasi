@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdgNzmUgKlDBuQHjnT_lVHbx_dqvTK9youBiMiPRrCZCMpzGA/viewform?usp=header";
+const GOOGLE_FORM_URL = "";
 
 export default function ContactPage() {
   const [showForm, setShowForm] = useState<boolean>(false);
