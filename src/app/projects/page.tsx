@@ -340,7 +340,7 @@ export default function ProjectsPage() {
                 >
                   Learn More &rarr;
                 </button>
-                <Link href="/apply" className="btn">
+                <Link href="/about#contributions" className="btn">
                   Select Track
                 </Link>
               </div>

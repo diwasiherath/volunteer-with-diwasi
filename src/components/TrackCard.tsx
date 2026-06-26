@@ -30,7 +30,7 @@ export default function TrackCard({
           <Link href={link} className="project-link">
             View Project Track &rarr;
           </Link>
-          <Link href="/apply" className="btn">
+          <Link href="/about#contributions" className="btn">
             Select Track
           </Link>
         </div>

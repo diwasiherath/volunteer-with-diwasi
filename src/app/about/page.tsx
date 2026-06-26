@@ -79,7 +79,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="pricing-section reveal">
+        <div id="contributions" className="pricing-section reveal">
           <h2 className="section-title">Program Contributions</h2>
           <p className="section-subtitle">Transparent packaging that directly funds local community development, host initiatives, and fully managed accommodation details.</p>
           
