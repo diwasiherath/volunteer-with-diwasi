@@ -485,7 +485,7 @@ export default function ReviewsPage() {
           {/* Write review callout */}
           <div className="write-review-hero">
             <h2 style={{ fontSize: "1.3rem", fontWeight: "700", color: "var(--dark)" }}>
-              Did you volunteer with Diwasi Sri Lanka?
+              Have you volunteered in Sri Lanka with Diwasi?
             </h2>
             <p style={{ fontSize: "0.95rem", color: "var(--gray-600)", maxWidth: "550px" }}>
               Your feedback helps us refine our community projects and guides future volunteers on their journeys. Share your story with us today!
