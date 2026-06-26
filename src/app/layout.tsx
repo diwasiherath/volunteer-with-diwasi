@@ -15,6 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://volunteerworkinsrilanka.com"),
   title: "Volunteer Sri Lanka With Diwasi | Application Form",
   description: "Complete your volunteer application for the Diwasi program in Sri Lanka.",
 };
