@@ -2,26 +2,18 @@ import type { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    "https://volunteerworkinsrilanka.com";
+const baseUrl = "https://volunteerworkinsrilanka.com";
 
+export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
-    { path: "/", changeFrequency: "daily" as const, priority: 1.0 },
-    { path: "/about", changeFrequency: "weekly" as const, priority: 0.8 },
-    { path: "/apply", changeFrequency: "monthly" as const, priority: 0.7 },
-    { path: "/contact", changeFrequency: "monthly" as const, priority: 0.7 },
-    { path: "/gallery", changeFrequency: "weekly" as const, priority: 0.6 },
-    { path: "/places", changeFrequency: "weekly" as const, priority: 0.8 },
-    { path: "/projects", changeFrequency: "weekly" as const, priority: 0.8 },
-    { path: "/reviews", changeFrequency: "daily" as const, priority: 0.7 },
+    "/", "/about", "/apply", "/contact",
+    "/gallery", "/places", "/projects", "/reviews"
   ];
 
-  return routes.map((route) => ({
-    url: `${baseUrl}${route.path}`,
-    lastModified: new Date(),
-    changeFrequency: route.changeFrequency,
-    priority: route.priority,
+  return routes.map((path) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: new Date("2026-06-26"), // stable date improves crawl trust
+    changeFrequency: "weekly" as const,
+    priority: path === "/" ? 1.0 : 0.7,
   }));
 }
