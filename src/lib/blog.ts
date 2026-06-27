@@ -12,7 +12,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Emma Peterson",
       role: "Education Volunteer",
-      avatarSrc: "/images/Co-Manager.jpeg"
+      avatarSrc: ""
     },
     tags: ["Education", "Community Development", "Sri Lanka Schools"],
     content: `
@@ -46,7 +46,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Marcus Thorne",
       role: "Travel Coordinator",
-      avatarSrc: "/images/Manager.jpeg"
+      avatarSrc: ""
     },
     tags: ["Travel Guide", "Weekend Trips", "Culture"],
     content: `
@@ -83,7 +83,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Diwasi Herath",
       role: "Program Director",
-      avatarSrc: "/images/Manager.jpeg"
+      avatarSrc: ""
     },
     tags: ["Sustainability", "Agriculture", "Rural Livelihoods"],
     content: `
@@ -113,7 +113,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: {
       name: "Sajith Bandara",
       role: "Culinary Lead",
-      avatarSrc: "/images/Co-Manager.jpeg"
+      avatarSrc: ""
     },
     tags: ["Culinary", "Local Business", "Community Placements"],
     content: `
