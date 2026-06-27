@@ -248,6 +248,7 @@ export default function Footer() {
               <li><Link href="/projects">Core Volunteer Tracks</Link></li>
               <li><Link href="/places">Weekend Excursions</Link></li>
               <li><Link href="/gallery">Field Photo Gallery</Link></li>
+              <li><Link href="/blog">Volunteer Blog & Stories</Link></li>
               <li><Link href="/reviews">Volunteer Reviews</Link></li>
               <li><Link href="/contact">Apply / Contact Us</Link></li>
             </ul>

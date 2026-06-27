@@ -31,3 +31,21 @@ export interface VolunteerReview {
   approved: boolean;
   country: string;
 }
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string; // HTML format for rendering rich paragraphs/headings
+  category: "Volunteer Stories" | "Travel Tips" | "Cultural Guide" | "Impact Updates";
+  publishDate: string;
+  readTime: string;
+  imageSrc: string;
+  author: {
+    name: string;
+    role: string;
+    avatarSrc?: string;
+  };
+  tags: string[];
+}
+
