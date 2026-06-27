@@ -17,23 +17,26 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://volunteerworkinsrilanka.com"),
   title: {
-    default: "Volunteer Sri Lanka With Diwasi",
-    template: "%s | Volunteer Sri Lanka",
+    default: "Volunteer Work in Sri Lanka | DIWASI",
+    template: "%s | Volunteer Work in Sri Lanka | DIWASI",
   },
   description:
-    "Complete your volunteer application for the Diwasi program in Sri Lanka",
+    "Join the DIWASI program for meaningful and sustainable volunteer work in Sri Lanka. Support local schools, paddy farming, and community development.",
   keywords: [
+    "volunteer work in Sri Lanka",
     "volunteer Sri Lanka",
     "volunteer programs Sri Lanka",
     "NGO Sri Lanka",
     "teach English Sri Lanka",
+    "DIWASI volunteer",
+    "ethical volunteering Sri Lanka",
   ],
-  authors: [{ name: "Diwasi Initiative" }],
+  authors: [{ name: "DIWASI Initiative" }],
   openGraph: {
-    title: "Volunteer Sri Lanka",
-    description: "Join ethical volunteering programs in Sri Lanka",
+    title: "Volunteer Work in Sri Lanka | DIWASI",
+    description: "Join ethical and sustainable volunteer work programs in Sri Lanka with DIWASI.",
     url: "https://volunteerworkinsrilanka.com",
-    siteName: "Volunteer Sri Lanka",
+    siteName: "DIWASI",
     type: "website",
   },
   twitter: {
@@ -44,10 +47,10 @@ export const metadata: Metadata = {
 export const jsonLd = {
   "@context": "https://schema.org",
   "@type": "NGO",
-  name: "Volunteer Work in Sri Lanka",
+  name: "Volunteer Work in Sri Lanka | DIWASI",
   url: "https://volunteerworkinsrilanka.com",
   areaServed: "Sri Lanka",
-  description: "Volunteer tourism programs in Sri Lanka",
+  description: "Join ethical volunteering and volunteer work programs in Sri Lanka. Support public schools, paddy fields, and local bakery development with DIWASI.",
 };
 
 export default function RootLayout({

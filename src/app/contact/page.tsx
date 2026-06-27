@@ -9,10 +9,6 @@ const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdgNzmUgKlDBuQ
 export default function ContactPage() {
   const [showForm, setShowForm] = useState<boolean>(false);
 
-  // Set document title dynamically on client mount
-  useEffect(() => {
-    document.title = "Contact Volunteer SL | Get in touch";
-  }, []);
 
   if (showForm) {
     return (

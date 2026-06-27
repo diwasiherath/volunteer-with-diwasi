@@ -673,7 +673,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
         <div className="nav-container">
           <Link href="/" className="logo" aria-label="DIWASI Homepage">
             <span className="logo-title">
-              <span className="logo-text-desktop">Volunteer Sri Lanka With Diwasi</span>
+              <span className="logo-text-desktop">Volunteer Work in Sri Lanka | DIWASI</span>
               <span className="logo-text-mobile">Volunteer With Diwasi</span>
             </span>
             <span className="logo-subtitle">where stays become stories</span>
