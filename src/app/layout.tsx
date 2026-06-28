@@ -17,26 +17,26 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://volunteerworkinsrilanka.com"),
   title: {
-    default: "Volunteer Work in Sri Lanka | DIWASI",
-    template: "%s | Volunteer Work in Sri Lanka | DIWASI",
+    default: "Volunteer work in sri lanka",
+    template: "%s | Volunteer work in sri lanka",
   },
   description:
-    "Join the DIWASI program for meaningful and sustainable volunteer work in Sri Lanka. Support local schools, paddy farming, and community development.",
+    "Join meaningful and sustainable volunteer work in Sri Lanka. Support local schools, paddy farming, and community development.",
   keywords: [
     "volunteer work in Sri Lanka",
     "volunteer Sri Lanka",
     "volunteer programs Sri Lanka",
     "NGO Sri Lanka",
     "teach English Sri Lanka",
-    "DIWASI volunteer",
+    "volunteer work in sri lanka",
     "ethical volunteering Sri Lanka",
   ],
-  authors: [{ name: "DIWASI Initiative" }],
+  authors: [{ name: "Volunteer work in sri lanka Initiative" }],
   openGraph: {
-    title: "Volunteer Work in Sri Lanka | DIWASI",
-    description: "Join ethical and sustainable volunteer work programs in Sri Lanka with DIWASI.",
+    title: "Volunteer work in sri lanka",
+    description: "Join ethical and sustainable volunteer work programs in Sri Lanka.",
     url: "https://volunteerworkinsrilanka.com",
-    siteName: "DIWASI",
+    siteName: "Volunteer work in sri lanka",
     type: "website",
   },
   twitter: {
@@ -47,10 +47,10 @@ export const metadata: Metadata = {
 export const jsonLd = {
   "@context": "https://schema.org",
   "@type": "NGO",
-  name: "Volunteer Work in Sri Lanka | DIWASI",
+  name: "Volunteer work in sri lanka",
   url: "https://volunteerworkinsrilanka.com",
   areaServed: "Sri Lanka",
-  description: "Join ethical volunteering and volunteer work programs in Sri Lanka. Support public schools, paddy fields, and local bakery development with DIWASI.",
+  description: "Join ethical volunteering and volunteer work programs in Sri Lanka. Support public schools, paddy fields, and local bakery development.",
 };
 
 export default function RootLayout({

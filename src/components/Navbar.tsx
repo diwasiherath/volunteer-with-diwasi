@@ -681,10 +681,10 @@ export default function Navbar({ currentPage }: NavbarProps) {
         `}} />
 
         <div className="nav-container">
-          <Link href="/" className="logo" aria-label="DIWASI Homepage">
+          <Link href="/" className="logo" aria-label="Volunteer work in sri lanka Homepage">
             <span className="logo-title">
-              <span className="logo-text-desktop">Volunteer Work in Sri Lanka | DIWASI</span>
-              <span className="logo-text-mobile">Volunteer With Diwasi</span>
+              <span className="logo-text-desktop">Volunteer work in sri lanka</span>
+              <span className="logo-text-mobile">Volunteer work in sri lanka</span>
             </span>
             <span className="logo-subtitle">where stays become stories</span>
           </Link>
@@ -707,8 +707,8 @@ export default function Navbar({ currentPage }: NavbarProps) {
             <ul id="nav-menu" className={`nav-menu ${navOpen ? "open" : ""}`}>
               {/* Dedicated Branding inside mobile drawer */}
               <div className="drawer-brand-header">
-                <span className="drawer-logo-title">DIWASI</span>
-                <span className="drawer-logo-subtitle">Volunteer Sri Lanka</span>
+                <span className="drawer-logo-title">Volunteer work in sri lanka</span>
+                <span className="drawer-logo-subtitle">where stays become stories</span>
               </div>
 
               <div className="nav-menu-links">

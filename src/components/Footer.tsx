@@ -216,7 +216,7 @@ export default function Footer() {
 
         <div className="footer-grid">
           <div className="footer-brand">
-            <h3>Volunteer Work in Sri Lanka | DIWASI <span>Where stays become stories</span></h3>
+            <h3>Volunteer work in sri lanka <span>Where stays become stories</span></h3>
             <p>An impactful volunteer initiative focused on community empowerment, ethical development models, and unforgettable cross-cultural storytelling.</p>
             
             {/* Social Icons Row */}
@@ -283,7 +283,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} DIWASI Volunteer Sri Lanka Initiative. Designed for ethical tourism and sustainable global partnerships.</p>
+          <p>&copy; {new Date().getFullYear()} Volunteer work in sri lanka Initiative. Designed for ethical tourism and sustainable global partnerships.</p>
         </div>
       </footer>
 

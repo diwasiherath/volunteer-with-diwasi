@@ -33,7 +33,7 @@ export async function generateMetadata({
     title: post.title,
     description: post.excerpt,
     openGraph: {
-      title: `${post.title} | Volunteer Work in Sri Lanka | DIWASI`,
+      title: `${post.title} | Volunteer work in sri lanka`,
       description: post.excerpt,
       images: [
         {
