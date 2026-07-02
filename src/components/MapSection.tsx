@@ -21,7 +21,7 @@ const MAP_LOCATIONS = [
   {
     id: "hq",
     label: "🏡 DIWASI Project Headquarters & Volunteer Housing Base",
-    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15865.044195155453!2d80.24151747805175!3d6.013778531122188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae172f10b7849cb%3A0xc3cf9c9da96fb89a!2sUnawatuna%2C%20Sri%20Lanka!5e0!3m2!1sen!2s!4v1710000000000!5m2!1sen!2s"
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5185966453966!2d79.955945!3d7.3233917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2e7a00c60dbb9%3A0xe6a0288775b6f3d4!2sVolunteer+Sri+Lanka+with+Diwasi!5e0!3m2!1sen!2s!4v1710000000000!5m2!1sen!2s"
   }
 ];
 
