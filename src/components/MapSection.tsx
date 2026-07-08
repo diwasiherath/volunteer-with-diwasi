@@ -5,8 +5,8 @@ import { useState } from "react";
 const MAP_LOCATIONS = [
   {
     id: "coastal",
-    label: "📍 Southern Province Tracks (Galle & Coastal Communities)",
-    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126909.07222370774!2d80.1348873099955!3d6.035767228800612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae173bb5218cce5%3A0x86da92c733f114c0!2sGalle%2C%20Sri%20Lanka!5e0!3m2!1sen!2s!4v1710000000000!5m2!1sen!2s"
+    label: "📍 Northwestern Province Tracks",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d506742.75383501727!2d79.8459!3d7.9658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2d174780528ad%3A0x63351d4576307129!2sNorth%20Western%20Province%2C%20Sri%20Lanka!5e0!3m2!1sen!2slk!4v1720445460000!5m2!1sen!2slk"
   },
   {
     id: "agricultural",
