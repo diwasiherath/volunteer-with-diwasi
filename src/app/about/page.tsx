@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -40,7 +41,7 @@ export default function AboutPage() {
             <p>To connect volunteers with schools, children's homes, elder care centers, and community organizations through meaningful service projects while promoting cultural awareness, heritage preservation, education, and social responsibility for the benefit of local communities.</p>
           </div>
           <div className="split-image">
-            <img src="/images/DSC04478.JPG" alt="Volunteers working with children" loading="lazy" />
+            <Image src="/images/school-classroom-volunteers-sri-lanka.jpg" alt="Volunteers working with children" loading="lazy" width={1200} height={800} />
           </div>
         </div>
 
@@ -50,7 +51,7 @@ export default function AboutPage() {
             <p>To create a world where cultural exchange, volunteerism, and community engagement inspire positive social change, empower local communities, preserve cultural heritage, and build lasting connections between people from diverse backgrounds.</p>
           </div>
           <div className="split-image">
-            <img src="/images/DSC04479.JPG" alt="Team building community structures" loading="lazy" />
+            <Image src="/images/community-development-project-sri-lanka.jpg" alt="Team building community structures" loading="lazy" width={1200} height={800} />
           </div>
         </div>
 

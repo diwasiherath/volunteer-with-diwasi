@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface TrackCardProps {
   title: string;
@@ -20,7 +21,7 @@ export default function TrackCard({
   return (
     <div className="project-card reveal is-visible">
       <div className="project-img-wrapper">
-        <img src={imageSrc} alt={imageAlt} loading="lazy" className="project-img" />
+        <Image src={imageSrc} alt={imageAlt} loading="lazy" className="project-img" width={800} height={600} />
       </div>
       <div className="project-content">
         {tag && <span className="project-tag">{tag}</span>}

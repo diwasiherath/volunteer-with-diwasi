@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -545,10 +546,12 @@ export default function ContactPage() {
               {/* Card 1: Manager / Program Director (Diwasi Herath) */}
               <div className="manager-card card-blue">
                 <div className="manager-avatar-container">
-                  <img 
-                    src="/images/Manager.jpeg" 
-                    alt="Diwasi Herath - Program Director / Manager" 
+                  <Image
+                    src="/images/diwasi-herath-program-director.jpeg"
+                    alt="Diwasi Herath - Program Director / Manager"
                     className="manager-avatar"
+                    width={180}
+                    height={180}
                   />
                 </div>
                 <div className="manager-info">
@@ -577,10 +580,12 @@ export default function ContactPage() {
               {/* Card 2: Co-Manager (Mahee Janaka) */}
               <div className="manager-card card-green">
                 <div className="manager-avatar-container">
-                  <img 
-                    src="/images/Co-Manager.jpeg" 
-                    alt="Mahee Janaka - Program Co-Manager" 
+                  <Image
+                    src="/images/Co-diwasi-herath-program-director.jpeg"
+                    alt="Mahee Janaka - Program Co-Manager"
                     className="manager-avatar"
+                    width={180}
+                    height={180}
                   />
                 </div>
                 <div className="manager-info">

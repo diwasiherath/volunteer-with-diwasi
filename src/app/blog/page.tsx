@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getAllPosts } from "@/lib/blog";
@@ -60,7 +61,7 @@ export default function BlogListingPage() {
         {featuredPost && searchQuery === "" && selectedCategory === "All" && (
           <div className="featured-blog-card reveal">
             <div className="featured-blog-image">
-              <img src={featuredPost.imageSrc} alt={featuredPost.title} />
+              <Image src={featuredPost.imageSrc} alt={featuredPost.title} width={1200} height={800} />
             </div>
             <div className="featured-blog-content">
               <span className="blog-badge">{featuredPost.category}</span>
@@ -78,10 +79,12 @@ export default function BlogListingPage() {
               
               <div className="blog-author-row">
                 {featuredPost.author.avatarSrc && (
-                  <img 
-                    src={featuredPost.author.avatarSrc} 
-                    alt={featuredPost.author.name} 
+                  <Image
+                    src={featuredPost.author.avatarSrc}
+                    alt={featuredPost.author.name}
                     className="author-avatar"
+                    width={44}
+                    height={44}
                   />
                 )}
                 <div className="author-info">
@@ -137,7 +140,7 @@ export default function BlogListingPage() {
             filteredPosts.map((post) => (
               <article key={post.slug} className="blog-card">
                 <div className="blog-card-image">
-                  <img src={post.imageSrc} alt={post.title} />
+                  <Image src={post.imageSrc} alt={post.title} width={1200} height={800} />
                 </div>
                 <div className="blog-card-content">
                   <span className="blog-badge">{post.category}</span>
@@ -153,11 +156,13 @@ export default function BlogListingPage() {
                   <div className="blog-card-footer">
                     <div className="blog-author-row" style={{ gap: "8px" }}>
                       {post.author.avatarSrc && (
-                        <img 
-                          src={post.author.avatarSrc} 
-                          alt={post.author.name} 
-                          className="author-avatar" 
+                        <Image
+                          src={post.author.avatarSrc}
+                          alt={post.author.name}
+                          className="author-avatar"
                           style={{ width: "32px", height: "32px" }}
+                          width={44}
+                          height={44}
                         />
                       )}
                       <div className="author-info">

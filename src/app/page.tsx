@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MapSection from "@/components/MapSection";
@@ -83,21 +84,21 @@ export default function Home() {
           <TrackCard
             title="School Development"
             description="Support public schools with classroom improvements, creative educational aids, conversational English tracks, and inclusive recreational activities."
-            imageSrc="/images/DSC04478.JPG"
+            imageSrc="/images/school-classroom-volunteers-sri-lanka.jpg"
             imageAlt="School classroom development in Sri Lanka"
           />
           
           <TrackCard
             title="Paddy Field Experience"
             description="Step onto traditional family farms, take part in rice cultivation, explore centuries-old irrigation setups, and master rural village cooking skills."
-            imageSrc="/images/IMG_1841.jpg"
+            imageSrc="/images/paddy-field-rice-cultivation-sri-lanka.jpg"
             imageAlt="Traditional rice paddy field cultivation in Sri Lanka"
           />
           
           <TrackCard
             title="Bakery Volunteering"
             description="Collaborate inside local baking houses to master local bread preparation while directly strengthening community micro-entrepreneurship models."
-            imageSrc="/images/Bakery & Culinary.jpeg"
+            imageSrc="/images/bakery-culinary-volunteering-sri-lanka.jpeg"
             imageAlt="Local bakery house volunteering"
           />
         </div>
@@ -116,7 +117,7 @@ export default function Home() {
         
         <div className="places-grid">
           <div className="place-card reveal">
-            <img src="/images/Fortress in Galle.jpeg" alt="Galle Fort seaside ramparts" loading="lazy" />
+            <Image src="/images/galle-fort-sri-lanka.jpeg" alt="Galle Fort seaside ramparts" loading="lazy" width={1200} height={800} />
             <div className="place-overlay">
               <h4>Galle Historic Fort</h4>
               <p>Walk alongside colonial ramparts, browse boutique design houses, and watch breathtaking Indian Ocean sunsets.</p>
@@ -124,7 +125,7 @@ export default function Home() {
           </div>
           
           <div className="place-card reveal">
-            <img src="/images/Sigiriya.JPG" alt="Sigiriya Citadel rock fortress" loading="lazy" />
+            <Image src="/images/sigiriya-ancient-citadel-sri-lanka.jpg" alt="Sigiriya Citadel rock fortress" loading="lazy" width={1200} height={800} />
             <div className="place-overlay">
               <h4>Sigiriya Ancient Citadel</h4>
               <p>Scale the world-famous rock fortress to find historic fresco paintings and massive royal pleasure garden ruins.</p>
@@ -146,25 +147,25 @@ export default function Home() {
         
         <div className="gallery-grid">
           <div className="gallery-card reveal">
-            <img src="/images/DSC04518.JPG" alt="Sri Lankan school children smiling" loading="lazy" />
+            <Image src="/images/sri-lankan-school-children-smiling.jpg" alt="Sri Lankan school children smiling" loading="lazy" width={800} height={600} />
             <div className="gallery-overlay">
               <span className="gallery-overlay-icon">📸</span>
             </div>
           </div>
           <div className="gallery-card reveal">
-            <img src="/images/DSC04484.JPG" alt="Volunteers conducting interactive classroom activities" loading="lazy" />
+            <Image src="/images/volunteers-classroom-activities-sri-lanka.jpg" alt="Volunteers conducting interactive classroom activities" loading="lazy" width={800} height={600} />
             <div className="gallery-overlay">
               <span className="gallery-overlay-icon">📸</span>
             </div>
           </div>
           <div className="gallery-card reveal">
-            <img src="/images/DSC04528.JPG" alt="DIWASI community project team photo" loading="lazy" />
+            <Image src="/images/diwasi-community-project-launch.jpg" alt="DIWASI community project team photo" loading="lazy" width={800} height={600} />
             <div className="gallery-overlay">
               <span className="gallery-overlay-icon">📸</span>
             </div>
           </div>
           <div className="gallery-card reveal">
-            <img src="/images/DSC04490.JPG" alt="Rural community English teaching lesson" loading="lazy" />
+            <Image src="/images/rural-english-teaching-sri-lanka.jpg" alt="Rural community English teaching lesson" loading="lazy" width={800} height={600} />
             <div className="gallery-overlay">
               <span className="gallery-overlay-icon">📸</span>
             </div>

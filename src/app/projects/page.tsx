@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -20,7 +21,7 @@ const PROJECT_DETAILS: Record<string, {
   "school": {
     title: "School Development and Volunteer Engagement Project",
     tag: "Education & Infrastructure",
-    imageSrc: "/images/DSC04478.JPG",
+    imageSrc: "/images/school-classroom-volunteers-sri-lanka.jpg",
     shortDesc: "Support partner schools through classroom renovation, infrastructure upgrades, conversational English lessons, and inclusive recreational activities for students with special needs.",
     overview: "This project aims to support the educational and social development of partner schools through volunteer engagement, infrastructure improvements, educational programs, and inclusive activities for all students. By bringing together local communities, schools, and international volunteers, the project seeks to create a positive learning environment while promoting cultural exchange and community empowerment.",
     objectives: [
@@ -49,7 +50,7 @@ const PROJECT_DETAILS: Record<string, {
   "preschool": {
     title: "Preschool Development and Early Childhood Education Project",
     tag: "Early Childhood",
-    imageSrc: "/images/DSC04492.JPG",
+    imageSrc: "/images/preschool-development-sri-lanka.jpg",
     shortDesc: "Enhance early learning environments by assisting local teachers, preparing creative materials, teaching foundational English through music, and guiding basic health and hygiene routines.",
     overview: "The Preschool Development and Early Childhood Education Project is designed to support early learning environments by enhancing educational quality, improving facilities, and providing engaging learning experiences for young children. The project focuses on creating a safe, creative, and nurturing space where children can develop foundational skills in education, communication, creativity, and social interaction.",
     objectives: [
@@ -78,7 +79,7 @@ const PROJECT_DETAILS: Record<string, {
   "adult-care": {
     title: "Adult Care Home Support and Wellness Project",
     tag: "Social Welfare",
-    imageSrc: "/images/Adult Care Home Support and Wellness Project.jpeg",
+    imageSrc: "/images/adult-care-home-support-wellness-sri-lanka.jpeg",
     shortDesc: "Provide physical mobility support, gentle exercises, companionship, and memory-sharing activities to elderly residents while improving living facilities and care home gardens.",
     overview: "The Adult Care Home Support and Wellness Project is designed to enhance the quality of life of elderly residents through health support services, social engagement, environmental improvement, and compassionate volunteer assistance. The project aims to promote physical well-being, emotional support, dignity, and social inclusion for older adults living in care homes.",
     objectives: [
@@ -107,7 +108,7 @@ const PROJECT_DETAILS: Record<string, {
   "monks-edu": {
     title: "English Education for Buddhist Monks Project",
     tag: "Language Exchange",
-    imageSrc: "/images/English Education for Buddhist Monks Project.jpeg",
+    imageSrc: "/images/english-education-buddhist-monks-sri-lanka.jpeg",
     shortDesc: "Empower monastic communities by teaching conversational grammar, pronunciation, and English terminology related to Buddhist philosophy to help them communicate with global visitors.",
     overview: "The English Education for Buddhist Monks Project is designed to support the English language development of Buddhist monks, enabling them to communicate effectively with international visitors, participate in global religious and cultural exchanges, and share Buddhist teachings with a wider audience. This initiative aims to bridge language barriers while respecting and preserving monastic traditions.",
     objectives: [
@@ -136,7 +137,7 @@ const PROJECT_DETAILS: Record<string, {
   "paddy-field": {
     title: "Agricultural Heritage and Paddy Field Experience Project",
     tag: "Sustainable Agriculture",
-    imageSrc: "/images/IMG_1841.jpg",
+    imageSrc: "/images/paddy-field-rice-cultivation-sri-lanka.jpg",
     shortDesc: "Immerse yourself directly into traditional Sri Lankan farming. Participate in hands-on rice planting, water management, harvesting, and authentic village cooking sessions.",
     overview: "The Agricultural Heritage and Paddy Field Experience Project offers visitors a unique opportunity to immerse themselves in traditional farming practices while experiencing the rich agricultural culture of the local community. This initiative is designed to provide tourists with hands-on experiences in paddy cultivation, rural lifestyles, and sustainable agricultural practices rather than a conventional volunteer structure.",
     objectives: [
@@ -165,7 +166,7 @@ const PROJECT_DETAILS: Record<string, {
   "social-cultural": {
     title: "Social & Cultural Experience Activities Track",
     tag: "Responsible Tourism",
-    imageSrc: "/images/social and cultural.jpeg",
+    imageSrc: "/images/social-cultural-experience-sri-lanka.jpeg",
     shortDesc: "Engage in active beach cleaning and marine conservation efforts, take part in temple restoration, learn local crafts, and participate in traditional ceremonies.",
     overview: "The Social & Cultural Experience Activities component of the program is designed to offer participants immersive, meaningful, and memorable experiences through engagement in local cultural life and environmental activities. Rather than focusing solely on community service, this section emphasizes experiential learning, cultural appreciation, and responsible tourism.",
     objectives: [
@@ -193,7 +194,7 @@ const PROJECT_DETAILS: Record<string, {
   "industrial-craft": {
     title: "Industrial, Craft & Educational Experience Project",
     tag: "Industrial & Experiential",
-    imageSrc: "/images/indsutrial craft.jpeg",
+    imageSrc: "/images/industrial-craft-experience-sri-lanka.jpeg",
     shortDesc: "Explore leading production facilities—including porcelain, apparel, and coconut industries—interact with local university campuses, and join hands-on pottery workshops.",
     overview: "The Industrial, Craft & Educational Experience Project is designed to provide participants with an immersive journey into Sri Lanka’s world-class manufacturing industries, traditional craftsmanship, and academic environments. This program blends educational tourism, cultural learning, and hands-on creative experiences to offer a unique understanding of both modern industry and traditional heritage.",
     objectives: [
@@ -222,7 +223,7 @@ const PROJECT_DETAILS: Record<string, {
   "ayurvedic-wellness": {
     title: "Ayurvedic Medicine, Wellness & Educational Experience Project",
     tag: "Ayurveda & Wellness",
-    imageSrc: "/images/ayurvedic.jpeg",
+    imageSrc: "/images/ayurvedic-wellness-sri-lanka.jpeg",
     shortDesc: "Discover Sri Lanka's rich healing traditions. Learn core Ayurvedic remedies, identify indigenous medicinal plants, and assist in local therapeutic wellness centers.",
     overview: "The Ayurvedic Medicine, Wellness & Educational Experience Project is designed to provide international visitors with an immersive introduction to Sri Lanka’s rich Ayurvedic heritage. The program combines wellness tourism, traditional medical education, cultural exchange, and community engagement, allowing participants to learn the principles of Ayurveda while actively supporting the daily operations of an Ayurvedic clinic.",
     objectives: [
@@ -251,7 +252,7 @@ const PROJECT_DETAILS: Record<string, {
   "bakery-share": {
     title: "Sri Lankan Bakery, Traditional Food & Community Sharing Experience Project",
     tag: "Bakery & Culinary",
-    imageSrc: "/images/Bakery & Culinary.jpeg",
+    imageSrc: "/images/bakery-culinary-volunteering-sri-lanka.jpeg",
     shortDesc: "Work alongside local community bakeries to master traditional Sri Lankan bread and pastry preparation methods while helping develop local micro-entrepreneurship models.",
     overview: "The Sri Lankan Bakery, Traditional Food & Community Sharing Experience Project is designed to provide visitors with an authentic culinary journey into Sri Lanka’s rich food heritage. The program combines traditional home baking, local food preparation, cultural learning, and community engagement, allowing participants to learn recipes passed down through generations while connecting with local families and communities.",
     objectives: [
@@ -326,7 +327,7 @@ export default function ProjectsPage() {
         {Object.entries(PROJECT_DETAILS).map(([id, proj]) => (
           <div key={id} className="project-card reveal is-visible" data-project={id}>
             <div className="project-img-wrapper">
-              <img className="project-img" src={proj.imageSrc} alt={proj.title} loading="lazy" />
+              <Image className="project-img" src={proj.imageSrc} alt={proj.title} loading="lazy" width={800} height={600} />
             </div>
             <div className="project-content">
               <span className="project-tag">{proj.tag}</span>
@@ -366,7 +367,7 @@ export default function ProjectsPage() {
             >
               &times;
             </button>
-            <img className="modal-header-img" src={activeProject.imageSrc} alt={activeProject.title} />
+            <Image className="modal-header-img" src={activeProject.imageSrc} alt={activeProject.title} width={1200} height={260} />
             <div className="modal-body">
               <h2 className="modal-title">{activeProject.title}</h2>
               <span className="project-tag" style={{ display: "inline-block", marginBottom: "20px" }}>{activeProject.tag}</span>

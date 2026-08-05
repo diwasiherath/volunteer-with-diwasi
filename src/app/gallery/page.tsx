@@ -1,48 +1,49 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const GALLERY_DATA = [
   {
     id: 1,
-    imgSrc: "/images/DSC04518.JPG",
+    imgSrc: "/images/sri-lankan-school-children-smiling.jpg",
     title: "Smiles All Around",
     category: "Partner school visit",
     description: "Children at a partner school sharing a joyful moment with volunteers."
   },
   {
     id: 2,
-    imgSrc: "/images/DSC04484.JPG",
+    imgSrc: "/images/volunteers-classroom-activities-sri-lanka.jpg",
     title: "Learning Together",
     category: "Classroom activities",
     description: "Volunteers leading interactive English lessons with local students."
   },
   {
     id: 3,
-    imgSrc: "/images/DSC04528.JPG",
+    imgSrc: "/images/diwasi-community-project-launch.jpg",
     title: "Community Project Launch",
     category: "Kickoff celebration",
     description: "Local community members and volunteers celebrating a new project kickoff."
   },
   {
     id: 4,
-    imgSrc: "/images/DSC04490.JPG",
+    imgSrc: "/images/rural-english-teaching-sri-lanka.jpg",
     title: "Rural Classrooms",
     category: "Rural school visit",
     description: "A glimpse inside one of our partner rural schools in Sri Lanka."
   },
   {
     id: 5,
-    imgSrc: "/images/IMG_1841.jpg",
+    imgSrc: "/images/paddy-field-rice-cultivation-sri-lanka.jpg",
     title: "Paddy Field Days",
     category: "Rural heritage experience",
     description: "Volunteers experiencing traditional rice cultivation in the paddy fields."
   },
   {
     id: 6,
-    imgSrc: "/images/DSC04515.JPG",
+    imgSrc: "/images/special-needs-education-sri-lanka.jpg",
     title: "Special Needs Unit",
     category: "Inclusive education support",
     description: "Supporting inclusive education at our partner special needs unit."
@@ -97,7 +98,7 @@ export default function GalleryPage() {
             onClick={() => setActiveItem(item)}
             aria-label={`Open image details for ${item.title}`}
           >
-            <img src={item.imgSrc} alt={item.title} loading="lazy" />
+            <Image src={item.imgSrc} alt={item.title} loading="lazy" width={800} height={600} />
             <div className="gallery-caption">
               <h3>{item.title}</h3>
               <p>{item.category}</p>
@@ -119,7 +120,7 @@ export default function GalleryPage() {
       >
         {activeItem && (
           <div className="lightbox-content">
-            <img src={activeItem.imgSrc} alt={activeItem.title} />
+            <Image src={activeItem.imgSrc} alt={activeItem.title} width={1200} height={800} />
             <div className="lightbox-caption">
               <h3>{activeItem.title}</h3>
               <p>{activeItem.description}</p>

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
@@ -32,6 +33,9 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
     openGraph: {
       title: `${post.title} | Volunteer work in sri lanka`,
       description: post.excerpt,
@@ -79,10 +83,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="blog-detail-meta">
             <div className="blog-author-row">
               {post.author.avatarSrc && (
-                <img 
-                  src={post.author.avatarSrc} 
-                  alt={post.author.name} 
+                <Image
+                  src={post.author.avatarSrc}
+                  alt={post.author.name}
                   className="author-avatar"
+                  width={44}
+                  height={44}
                 />
               )}
               <div className="author-info">
@@ -101,7 +107,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Featured Image */}
         <div className="blog-detail-image">
-          <img src={post.imageSrc} alt={post.title} />
+          <Image src={post.imageSrc} alt={post.title} width={1200} height={800} />
         </div>
 
         {/* Article Body */}
@@ -143,7 +149,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {relatedPosts.map((rPost) => (
               <article key={rPost.slug} className="blog-card">
                 <div className="blog-card-image">
-                  <img src={rPost.imageSrc} alt={rPost.title} />
+                  <Image src={rPost.imageSrc} alt={rPost.title} width={1200} height={800} />
                 </div>
                 <div className="blog-card-content">
                   <span className="blog-badge">{rPost.category}</span>
@@ -159,11 +165,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   <div className="blog-card-footer">
                     <div className="blog-author-row" style={{ gap: "8px" }}>
                       {rPost.author.avatarSrc && (
-                        <img 
-                          src={rPost.author.avatarSrc} 
-                          alt={rPost.author.name} 
-                          className="author-avatar" 
+                        <Image
+                          src={rPost.author.avatarSrc}
+                          alt={rPost.author.name}
+                          className="author-avatar"
                           style={{ width: "32px", height: "32px" }}
+                          width={44}
+                          height={44}
                         />
                       )}
                       <div className="author-info">

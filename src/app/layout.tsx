@@ -17,8 +17,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://volunteerworkinsrilanka.com"),
   title: {
-    default: "Volunteer work in sri lanka",
-    template: "%s | Volunteer work in sri lanka",
+    default: "Volunteer Work in Sri Lanka",
+    template: "%s | Volunteer Work in Sri Lanka",
   },
   description:
     "Join meaningful and sustainable volunteer work in Sri Lanka. Support local schools, paddy farming, and community development.",
@@ -31,12 +31,15 @@ export const metadata: Metadata = {
     "volunteer work in sri lanka",
     "ethical volunteering Sri Lanka",
   ],
-  authors: [{ name: "Volunteer work in sri lanka Initiative" }],
+  authors: [{ name: "Volunteer Work in Sri Lanka Initiative" }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Volunteer work in sri lanka",
+    title: "Volunteer Work in Sri Lanka",
     description: "Join ethical and sustainable volunteer work programs in Sri Lanka.",
     url: "https://volunteerworkinsrilanka.com",
-    siteName: "Volunteer work in sri lanka",
+    siteName: "Volunteer Work in Sri Lanka",
     type: "website",
   },
   twitter: {
@@ -47,7 +50,7 @@ export const metadata: Metadata = {
 export const jsonLd = {
   "@context": "https://schema.org",
   "@type": "NGO",
-  name: "Volunteer work in sri lanka",
+  name: "Volunteer Work in Sri Lanka",
   url: "https://volunteerworkinsrilanka.com",
   areaServed: "Sri Lanka",
   description: "Join ethical volunteering and volunteer work programs in Sri Lanka. Support public schools, paddy fields, and local bakery development.",

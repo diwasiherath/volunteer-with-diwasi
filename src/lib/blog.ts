@@ -8,7 +8,7 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: "June 15, 2026",
     readTime: "5 min read",
     category: "Volunteer Stories",
-    imageSrc: "/images/DSC04478.JPG",
+    imageSrc: "/images/school-classroom-volunteers-sri-lanka.jpg",
     author: {
       name: "Emma Peterson",
       role: "Education Volunteer",
@@ -42,7 +42,7 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: "May 28, 2026",
     readTime: "7 min read",
     category: "Travel Tips",
-    imageSrc: "/images/Fortress in Galle.jpeg",
+    imageSrc: "/images/galle-fort-sri-lanka.jpeg",
     author: {
       name: "Marcus Thorne",
       role: "Travel Coordinator",
@@ -79,7 +79,7 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: "June 2, 2026",
     readTime: "6 min read",
     category: "Impact Updates",
-    imageSrc: "/images/IMG_1841.jpg",
+    imageSrc: "/images/paddy-field-rice-cultivation-sri-lanka.jpg",
     author: {
       name: "Diwasi Herath",
       role: "Program Director",
@@ -109,7 +109,7 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: "June 10, 2026",
     readTime: "5 min read",
     category: "Cultural Guide",
-    imageSrc: "/images/Bakery & Culinary.jpeg",
+    imageSrc: "/images/bakery-culinary-volunteering-sri-lanka.jpeg",
     author: {
       name: "Sajith Bandara",
       role: "Culinary Lead",
