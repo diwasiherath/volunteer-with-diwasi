@@ -58,6 +58,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* Scrollbar styles */
@@ -1797,6 +1798,9 @@ textarea:user-valid {
   .map-display-container {
     height: 360px;
   }
+  .find-purpose-banner {
+    padding: 50px 24px;
+  }
 }
 
 
@@ -1930,6 +1934,32 @@ textarea:user-valid {
   border-top: 1px solid var(--gray-200);
   display: flex;
   justify-content: flex-end;
+}
+
+@media (max-width: 600px) {
+  .modal-overlay {
+    padding: 12px;
+  }
+  .modal-container {
+    max-height: 92vh;
+    border-top-width: 5px;
+  }
+  .modal-header-img {
+    height: 180px;
+  }
+  .modal-body {
+    padding: 24px 20px;
+  }
+  .modal-title {
+    font-size: 22px;
+  }
+  .modal-footer {
+    justify-content: stretch;
+  }
+  .modal-footer .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* PLACES GRID DISPLAY */

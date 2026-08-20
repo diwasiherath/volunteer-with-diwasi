@@ -4,12 +4,48 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 interface NavbarProps {
-  currentPage: "home" | "about" | "projects" | "places" | "gallery" | "contact" | "apply" | "reviews" | "blog";
+  currentPage:
+    | "home"
+    | "about"
+    | "projects"
+    | "places"
+    | "gallery"
+    | "contact"
+    | "apply"
+    | "reviews"
+    | "blog"
+    | "volunteer-villa"
+    | "host-family"
+    | "how-it-works"
+    | "pricing";
 }
+
+interface LeafItem {
+  id: string;
+  label: string;
+  path: string;
+}
+
+interface LinkNavItem {
+  type: "link";
+  id: string;
+  label: string;
+  path: string;
+}
+
+interface DropdownNavItem {
+  type: "dropdown";
+  id: string;
+  label: string;
+  items: LeafItem[];
+}
+
+type NavItem = LinkNavItem | DropdownNavItem;
 
 export default function Navbar({ currentPage }: NavbarProps) {
   const [navOpen, setNavOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
 
   // Monitor scrolling for older browsers/fallback sticky classes
   useEffect(() => {
@@ -44,15 +80,44 @@ export default function Navbar({ currentPage }: NavbarProps) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  const navLinks = [
-    { id: "home", label: "Home", path: "/" },
-    { id: "about", label: "About", path: "/about" },
-    { id: "projects", label: "Projects", path: "/projects" },
-    { id: "places", label: "Places to Visit", path: "/places" },
-    { id: "gallery", label: "Gallery", path: "/gallery" },
-    { id: "blog", label: "Blog", path: "/blog" },
-    { id: "reviews", label: "Reviews", path: "/reviews" },
-    { id: "contact", label: "Contact", path: "/contact" }
+  const toggleGroup = (id: string) => {
+    setOpenGroups((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  const navItems: NavItem[] = [
+    { type: "link", id: "home", label: "Home", path: "/" },
+    {
+      type: "dropdown",
+      id: "about-group",
+      label: "About",
+      items: [
+        { id: "about", label: "About Us", path: "/about" },
+        { id: "reviews", label: "Reviews", path: "/reviews" }
+      ]
+    },
+    {
+      type: "dropdown",
+      id: "volunteer-group",
+      label: "Volunteer",
+      items: [
+        { id: "projects", label: "Projects", path: "/projects" },
+        { id: "volunteer-villa", label: "Volunteer Villa", path: "/volunteer-villa" },
+        { id: "host-family", label: "Host Family", path: "/host-family" },
+        { id: "how-it-works", label: "How It Works", path: "/how-it-works" }
+      ]
+    },
+    {
+      type: "dropdown",
+      id: "explore-group",
+      label: "Explore Sri Lanka",
+      items: [
+        { id: "places", label: "Places to Visit", path: "/places" },
+        { id: "gallery", label: "Gallery", path: "/gallery" },
+        { id: "blog", label: "Blog", path: "/blog" }
+      ]
+    },
+    { type: "link", id: "pricing", label: "Pricing", path: "/pricing" },
+    { type: "link", id: "contact", label: "Contact", path: "/contact" }
   ];
 
   const linkIcons: Record<string, React.ReactNode> = {
@@ -62,6 +127,13 @@ export default function Navbar({ currentPage }: NavbarProps) {
         <polyline points="9 22 9 12 15 12 15 22" />
       </svg>
     ),
+    "about-group": (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M12 16v-4" />
+        <path d="M12 8h.01" />
+      </svg>
+    ),
     about: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
@@ -69,10 +141,43 @@ export default function Navbar({ currentPage }: NavbarProps) {
         <path d="M12 8h.01" />
       </svg>
     ),
+    "volunteer-group": (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+      </svg>
+    ),
     projects: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+      </svg>
+    ),
+    "volunteer-villa": (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9.5 12 3l9 6.5" />
+        <path d="M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10" />
+      </svg>
+    ),
+    "host-family": (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>
+    ),
+    "how-it-works": (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+        <path d="M12 17h.01" />
+      </svg>
+    ),
+    "explore-group": (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
       </svg>
     ),
     places: (
@@ -102,6 +207,12 @@ export default function Navbar({ currentPage }: NavbarProps) {
         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
       </svg>
     ),
+    pricing: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
+        <circle cx="7.5" cy="7.5" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    ),
     contact: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
@@ -117,11 +228,17 @@ export default function Navbar({ currentPage }: NavbarProps) {
     )
   };
 
+  const caretIcon = (
+    <svg className="nav-caret" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="6 9 12 15 18 9" />
+    </svg>
+  );
+
   return (
     <>
       {/* Blurred background overlay for mobile drawer */}
-      <div 
-        className={`nav-overlay ${navOpen ? "active" : ""}`} 
+      <div
+        className={`nav-overlay ${navOpen ? "active" : ""}`}
         onClick={() => setNavOpen(false)}
         aria-hidden="true"
       />
@@ -271,6 +388,108 @@ export default function Navbar({ currentPage }: NavbarProps) {
             text-shadow: 0 0 1px rgba(0, 128, 128, 0.1);
           }
 
+          /* Dropdown group trigger (Desktop) */
+          .site-header .nav-dropdown {
+            position: relative;
+          }
+
+          .site-header .nav-dropdown-trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            font-family: inherit;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            padding: 6px 0;
+            position: relative;
+          }
+
+          .site-header .nav-dropdown-trigger::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+
+          .site-header .nav-dropdown:hover .nav-dropdown-trigger::after,
+          .site-header .nav-dropdown:focus-within .nav-dropdown-trigger::after,
+          .site-header .nav-dropdown-trigger.active::after {
+            width: 100%;
+          }
+
+          .site-header .nav-dropdown-trigger.active {
+            color: var(--primary);
+          }
+
+          .site-header .nav-caret {
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            flex-shrink: 0;
+          }
+
+          .site-header .nav-dropdown:hover .nav-caret,
+          .site-header .nav-dropdown:focus-within .nav-caret {
+            transform: rotate(180deg);
+          }
+
+          .site-header .nav-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(6px);
+            min-width: 210px;
+            background: var(--white);
+            border-radius: 14px;
+            box-shadow: 0 16px 40px rgba(0, 40, 40, 0.14);
+            border: 1px solid rgba(0, 128, 128, 0.08);
+            padding: 8px;
+            margin: 0;
+            list-style: none;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+            z-index: 1100;
+          }
+
+          .site-header .nav-dropdown:hover .nav-dropdown-menu,
+          .site-header .nav-dropdown:focus-within .nav-dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(10px);
+          }
+
+          .site-header .nav-dropdown-menu li {
+            width: 100%;
+          }
+
+          .site-header .nav-dropdown-menu .nav-link {
+            display: block;
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 9px;
+            font-size: 14px;
+            white-space: nowrap;
+          }
+
+          .site-header .nav-dropdown-menu .nav-link::after {
+            display: none;
+          }
+
+          .site-header .nav-dropdown-menu .nav-link:hover,
+          .site-header .nav-dropdown-menu .nav-link.active {
+            background: rgba(0, 128, 128, 0.07);
+            color: var(--primary);
+          }
+
           /* Premium action button for Volunteer Application (Desktop) */
           .site-header .nav-link-apply {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
@@ -338,7 +557,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
             height: 2px;
             background-color: var(--primary);
             border-radius: 2px;
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
                         opacity 0.3s ease,
                         background-color 0.3s ease;
           }
@@ -384,6 +603,10 @@ export default function Navbar({ currentPage }: NavbarProps) {
             display: none;
           }
 
+          .site-header .nav-group-toggle {
+            display: none;
+          }
+
           /* Mobile Menu Drawer Container */
           .site-header .nav-menu-wrapper {
             display: flex;
@@ -393,7 +616,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
           .site-header .nav-menu-links {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 26px;
             list-style: none;
             padding: 0;
             margin: 0;
@@ -575,6 +798,82 @@ export default function Navbar({ currentPage }: NavbarProps) {
               color: var(--primary);
             }
 
+            /* Mobile Dropdown Groups: expandable accordions */
+            .site-header .nav-menu .nav-dropdown {
+              width: 100%;
+            }
+
+            .site-header .nav-dropdown-trigger {
+              display: none;
+            }
+
+            .site-header .nav-group-toggle {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 14px;
+              width: 100%;
+              background: none;
+              border: none;
+              font-family: inherit;
+              padding: 11px 16px;
+              font-size: 15px;
+              font-weight: 600;
+              color: var(--dark);
+              border-radius: 10px;
+              cursor: pointer;
+              transition: all 0.3s ease;
+            }
+
+            .site-header .nav-group-toggle-label {
+              display: flex;
+              align-items: center;
+              gap: 14px;
+            }
+
+            .site-header .nav-group-toggle:hover,
+            .site-header .nav-group-toggle.active {
+              background: rgba(0, 128, 128, 0.06);
+              color: var(--primary);
+            }
+
+            .site-header .nav-group-toggle .nav-caret {
+              opacity: 0.6;
+            }
+
+            .site-header .nav-group-toggle.open .nav-caret {
+              transform: rotate(180deg);
+            }
+
+            .site-header .nav-dropdown-menu {
+              position: static;
+              display: grid;
+              grid-template-rows: 0fr;
+              transition: grid-template-rows 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+              opacity: 1;
+              visibility: visible;
+              pointer-events: auto;
+              transform: none;
+              box-shadow: none;
+              border: none;
+              background: none;
+              padding: 0;
+              margin: 2px 0 0 0;
+            }
+
+            .site-header .nav-dropdown-menu.open {
+              grid-template-rows: 1fr;
+            }
+
+            .site-header .nav-dropdown-menu-inner {
+              overflow: hidden;
+            }
+
+            .site-header .nav-dropdown-menu .nav-link {
+              padding-left: 46px;
+              font-size: 14.5px;
+            }
+
             /* Mobile Volunteer CTA Button override */
             .site-header .nav-menu .nav-link-apply {
               text-align: center;
@@ -585,7 +884,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
               font-size: 15px;
               border-radius: 10px;
             }
-            
+
             .site-header .nav-menu .nav-link-apply:hover {
               transform: translateY(-2px);
               background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
@@ -688,9 +987,9 @@ export default function Navbar({ currentPage }: NavbarProps) {
             </span>
             <span className="logo-subtitle">where stays become stories</span>
           </Link>
-          
-          <button 
-            className={`nav-toggle ${navOpen ? "open" : ""}`} 
+
+          <button
+            className={`nav-toggle ${navOpen ? "open" : ""}`}
             onClick={() => setNavOpen(!navOpen)}
             aria-label="Toggle navigation menu"
             aria-expanded={navOpen}
@@ -702,7 +1001,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
               <span></span>
             </div>
           </button>
-          
+
           <nav id="primaryNav" className="nav-menu-wrapper">
             <ul id="nav-menu" className={`nav-menu ${navOpen ? "open" : ""}`}>
               {/* Dedicated Branding inside mobile drawer */}
@@ -712,31 +1011,89 @@ export default function Navbar({ currentPage }: NavbarProps) {
               </div>
 
               <div className="nav-menu-links">
-                {navLinks.map((link, index) => (
-                  <li 
-                    key={link.id}
-                    style={{ "--item-index": index } as React.CSSProperties}
-                  >
-                    <Link 
-                      href={link.path} 
-                      className={`nav-link ${currentPage === link.id ? "active" : ""}`}
-                      aria-current={currentPage === link.id ? "page" : undefined}
-                      onClick={() => setNavOpen(false)}
+                {navItems.map((item, index) => {
+                  if (item.type === "link") {
+                    return (
+                      <li
+                        key={item.id}
+                        style={{ "--item-index": index } as React.CSSProperties}
+                      >
+                        <Link
+                          href={item.path}
+                          className={`nav-link ${currentPage === item.id ? "active" : ""}`}
+                          aria-current={currentPage === item.id ? "page" : undefined}
+                          onClick={() => setNavOpen(false)}
+                        >
+                          <span className="nav-link-icon">{linkIcons[item.id]}</span>
+                          {item.label}
+                        </Link>
+                      </li>
+                    );
+                  }
+
+                  const isGroupActive = item.items.some((leaf) => leaf.id === currentPage);
+                  const isOpen = !!openGroups[item.id];
+
+                  return (
+                    <li
+                      key={item.id}
+                      className="nav-dropdown"
+                      style={{ "--item-index": index } as React.CSSProperties}
                     >
-                      <span className="nav-link-icon">{linkIcons[link.id]}</span>
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-                <li style={{ "--item-index": navLinks.length } as React.CSSProperties}>
-                  <Link 
-                    href="/apply" 
+                      {/* Desktop hover trigger */}
+                      <button
+                        type="button"
+                        className={`nav-dropdown-trigger ${isGroupActive ? "active" : ""}`}
+                        aria-haspopup="true"
+                      >
+                        {item.label}
+                        {caretIcon}
+                      </button>
+
+                      {/* Mobile accordion trigger */}
+                      <button
+                        type="button"
+                        className={`nav-group-toggle ${isGroupActive ? "active" : ""} ${isOpen ? "open" : ""}`}
+                        onClick={() => toggleGroup(item.id)}
+                        aria-expanded={isOpen}
+                        aria-controls={`${item.id}-menu`}
+                      >
+                        <span className="nav-group-toggle-label">
+                          <span className="nav-link-icon">{linkIcons[item.id]}</span>
+                          {item.label}
+                        </span>
+                        {caretIcon}
+                      </button>
+
+                      <ul id={`${item.id}-menu`} className={`nav-dropdown-menu ${isOpen ? "open" : ""}`}>
+                        <div className="nav-dropdown-menu-inner">
+                          {item.items.map((leaf) => (
+                            <li key={leaf.id}>
+                              <Link
+                                href={leaf.path}
+                                className={`nav-link ${currentPage === leaf.id ? "active" : ""}`}
+                                aria-current={currentPage === leaf.id ? "page" : undefined}
+                                onClick={() => setNavOpen(false)}
+                              >
+                                <span className="nav-link-icon">{linkIcons[leaf.id]}</span>
+                                {leaf.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </div>
+                      </ul>
+                    </li>
+                  );
+                })}
+                <li style={{ "--item-index": navItems.length } as React.CSSProperties}>
+                  <Link
+                    href="/apply"
                     className={`nav-link nav-link-apply ${currentPage === "apply" ? "active" : ""}`}
                     aria-current={currentPage === "apply" ? "page" : undefined}
                     onClick={() => setNavOpen(false)}
                   >
                     <span className="nav-link-icon">{linkIcons.apply}</span>
-                    Volunteer Application
+                    Apply Now
                   </Link>
                 </li>
               </div>
