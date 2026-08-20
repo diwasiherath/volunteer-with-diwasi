@@ -15,29 +15,45 @@ export default function VolunteerVillaPage() {
       <main className="about-container">
         <div className="split-section">
           <div className="split-text">
-            <h2>Coming Soon</h2>
-            <p>We&apos;re putting the finishing touches on our dedicated Volunteer Villa — a shared house option for volunteers who&apos;d rather stay together than with a host family, while still being minutes from every project site.</p>
-            <p>Full details on rooms, amenities, and pricing will be published here shortly. In the meantime, get in touch and we&apos;ll walk you through what&apos;s available.</p>
+            <h2>More Than Accommodation — Your Sri Lankan Home</h2>
+            <p>Our volunteer villa isn&apos;t simply a place to sleep.</p>
+            <p>It is a place where international volunteers can slow down, connect with local people and experience everyday Sri Lankan life.</p>
+            <p>Rather than staying in a large commercial hostel surrounded only by other tourists, you&apos;ll have the opportunity to experience the warmth of a local family environment.</p>
+            <p style={{ fontWeight: 700, color: "var(--primary)" }}>
+              Wake up in Sri Lanka. Share meals. Meet locals. Volunteer. Explore. Make memories.
+            </p>
             <Link href="/apply" className="btn-primary" style={{ textDecoration: "none", width: "fit-content" }}>
               Ask About the Villa
             </Link>
           </div>
         </div>
 
-        <h2 className="section-title">Why Volunteers Choose It</h2>
+        <h2 className="section-title">What Makes Our Villa Different?</h2>
         <p className="section-subtitle">A community-style stay built for volunteers, by volunteers.</p>
-        <div className="features-grid" style={{ marginBottom: "40px" }}>
-          <div className="feature-card">
-            <h3>Built-in Community</h3>
-            <p>Live alongside other volunteers from around the world and share the experience day to day.</p>
+        <div className="values-grid" style={{ marginBottom: "40px" }}>
+          <div className="value-card">
+            <span className="value-icon">🏡</span>
+            <h3>Local family environment</h3>
           </div>
-          <div className="feature-card">
-            <h3>Close to Projects</h3>
-            <p>Short commutes to schools, community centers, and every core volunteer track.</p>
+          <div className="value-card">
+            <span className="value-icon">🍛</span>
+            <h3>Authentic Sri Lankan meals</h3>
           </div>
-          <div className="feature-card">
-            <h3>Comfort & Privacy</h3>
-            <p>Private and shared rooms, common areas, and reliable WiFi for downtime between projects.</p>
+          <div className="value-card">
+            <span className="value-icon">🌿</span>
+            <h3>Peaceful surroundings</h3>
+          </div>
+          <div className="value-card">
+            <span className="value-icon">🤝</span>
+            <h3>International volunteer community</h3>
+          </div>
+          <div className="value-card">
+            <span className="value-icon">🇱🇰</span>
+            <h3>Cultural experiences</h3>
+          </div>
+          <div className="value-card">
+            <span className="value-icon">❤️</span>
+            <h3>A welcoming home away from home</h3>
           </div>
         </div>
       </main>

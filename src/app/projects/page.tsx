@@ -323,6 +323,38 @@ export default function ProjectsPage() {
         <p>Choose the project that aligns with your passions and skills to create a positive impact.</p>
       </div>
 
+      <section className="section-container">
+        <h2 className="section-title reveal">Why Volunteer with Us?</h2>
+        <div className="reveal" style={{ maxWidth: "760px", margin: "0 auto" }}>
+          <p style={{ marginBottom: "16px" }}>
+            Volunteering with us is designed for people who want more than a traditional holiday.
+          </p>
+          <p>
+            Whether you&apos;re travelling alone, taking a gap year, looking for a meaningful experience, or simply wanting to give something back while exploring Sri Lanka, you&apos;ll have the opportunity to connect with local people and contribute your time to the community.
+          </p>
+
+          <p style={{ marginTop: "28px", marginBottom: "10px", fontWeight: 700, color: "var(--dark)" }}>
+            Your experience can include:
+          </p>
+          <ul className="modal-list">
+            <li>Community volunteering</li>
+            <li>Supporting children and educational activities</li>
+            <li>Helping with local projects</li>
+            <li>Cultural exchange</li>
+            <li>Spending time with local families</li>
+            <li>Learning about Sri Lankan traditions</li>
+            <li>Exploring local communities</li>
+          </ul>
+
+          <p style={{ marginTop: "28px", marginBottom: "10px", fontWeight: 700, color: "var(--dark)" }}>
+            No special experience is required.
+          </p>
+          <p>
+            You don&apos;t have to be an expert, teacher, professional, or experienced volunteer. What matters most is your willingness to participate, learn, respect the community and share your time.
+          </p>
+        </div>
+      </section>
+
       <main className="projects-grid" style={{ maxWidth: "1200px", margin: "40px auto", padding: "0 20px" }}>
         {Object.entries(PROJECT_DETAILS).map(([id, proj]) => (
           <div key={id} className="project-card reveal is-visible" data-project={id}>

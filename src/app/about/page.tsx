@@ -35,6 +35,23 @@ export default function AboutPage() {
       </div>
 
       <main className="about-container">
+        <div className="reveal" style={{ maxWidth: "760px", margin: "0 auto 80px auto", textAlign: "center" }}>
+          <h2 className="section-title" style={{ marginTop: 0 }}>Why We Started</h2>
+          <p style={{ marginBottom: "16px" }}>
+            We believe travel can be more than sightseeing.
+          </p>
+          <p style={{ marginBottom: "16px" }}>
+            It can be a chance to meet people you would never otherwise meet, understand a different way of life, give your time to something meaningful and return home with a new perspective.
+          </p>
+          <p style={{ marginBottom: "16px" }}>
+            That&apos;s why we created this volunteer experience in Sri Lanka.
+          </p>
+          <p style={{ fontWeight: 700, color: "var(--dark)" }}>Our goal is simple:</p>
+          <p>
+            To bring people from around the world into a genuine Sri Lankan home, connect them with the local community, and create an experience that is meaningful for everyone involved.
+          </p>
+        </div>
+
         <div className="split-section reveal">
           <div className="split-text">
             <h2>Our Mission</h2>
@@ -77,6 +94,30 @@ export default function AboutPage() {
             <span className="value-icon">🌍</span>
             <h3>Cultural Respect</h3>
             <p>We honor local traditions, customs, and heritage in everything we do.</p>
+          </div>
+        </div>
+
+        <h2 className="section-title reveal" style={{ marginTop: "80px" }}>Meet Your Host</h2>
+        <div className="split-section reveal" style={{ marginBottom: "80px" }}>
+          <div className="split-text">
+            <p style={{ fontSize: "17px" }}>
+              Hi, I&apos;m Diwasi, the founder of Volunteer Sri Lanka with Diwasi.
+            </p>
+            <blockquote className="blog-quote" style={{ margin: "20px 0" }}>
+              I created this little home with love, hoping to give travellers more than just a place to stay. I want you to experience Sri Lanka through our culture, our people, our food and our everyday life.
+            </blockquote>
+            <p style={{ fontSize: "17px" }}>
+              For me, every volunteer is more than a guest — you become a part of our family. 🇱🇰❤️
+            </p>
+            <p style={{ fontSize: "17px" }}>
+              I can&apos;t wait to welcome you to Sri Lanka and create beautiful memories together.
+            </p>
+            <p style={{ fontWeight: 700, color: "var(--primary)", marginTop: "16px" }}>
+              With love,<br />Diwasi
+            </p>
+          </div>
+          <div className="split-image">
+            <Image src="/images/diwasi-herath-program-director.jpeg" alt="Diwasi Herath, founder of Volunteer Sri Lanka with Diwasi" loading="lazy" width={1200} height={800} />
           </div>
         </div>
 

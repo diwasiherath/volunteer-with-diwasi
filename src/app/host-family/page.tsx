@@ -15,9 +15,13 @@ export default function HostFamilyPage() {
       <main className="about-container">
         <div className="split-section">
           <div className="split-text">
-            <h2>Coming Soon</h2>
-            <p>Our host family program is our most popular way to stay — sharing meals, routines, and everyday life with a local family while you volunteer.</p>
-            <p>We&apos;re building out a full page with family profiles and what to expect. Until then, see current rates on our <Link href="/pricing">Pricing</Link> page, or reach out directly with questions.</p>
+            <h2>Don&apos;t Just Stay in Sri Lanka - Live with Sri Lankans</h2>
+            <p>One of the most special parts of your experience is getting to know the people behind the destination.</p>
+            <p>You&apos;ll have the opportunity to experience everyday Sri Lankan life - not just the version you see in tourist guides.</p>
+            <p>Share stories. Try local food. Learn simple Sinhala words. Discover family traditions. Ask questions. Laugh together.</p>
+            <p style={{ fontWeight: 700, color: "var(--primary)" }}>
+              Sometimes, the memories you&apos;ll take home won&apos;t be from the most famous tourist attraction — they&apos;ll be from sitting around a table with your Sri Lankan host family.
+            </p>
             <Link href="/apply" className="btn-primary" style={{ textDecoration: "none", width: "fit-content" }}>
               Ask About Host Families
             </Link>
@@ -38,6 +42,31 @@ export default function HostFamilyPage() {
           <div className="feature-card">
             <h3>A Home Away From Home</h3>
             <p>Shared accommodation, free WiFi, laundry, and a family looking out for you throughout your stay.</p>
+          </div>
+        </div>
+
+        <h2 className="section-title">A Day in the Life of a Volunteer</h2>
+        <p className="section-subtitle">What could a typical day look like? Every day is different — that&apos;s part of the experience.</p>
+        <div className="features-grid" style={{ marginBottom: "40px" }}>
+          <div className="feature-card">
+            <span style={{ fontSize: "32px", display: "block", marginBottom: "10px" }}>☀️</span>
+            <h3>Morning</h3>
+            <p>Wake up, enjoy breakfast and prepare for the day&apos;s activities.</p>
+          </div>
+          <div className="feature-card">
+            <span style={{ fontSize: "32px", display: "block", marginBottom: "10px" }}>🤝</span>
+            <h3>Daytime</h3>
+            <p>Take part in your volunteer project and spend meaningful time with the local community.</p>
+          </div>
+          <div className="feature-card">
+            <span style={{ fontSize: "32px", display: "block", marginBottom: "10px" }}>🍛</span>
+            <h3>Afternoon</h3>
+            <p>Return to the villa, relax, explore the surrounding area or participate in a cultural activity.</p>
+          </div>
+          <div className="feature-card">
+            <span style={{ fontSize: "32px", display: "block", marginBottom: "10px" }}>🌅</span>
+            <h3>Evening</h3>
+            <p>Enjoy dinner, talk with your hosts and other volunteers, share stories and plan the next day&apos;s adventure.</p>
           </div>
         </div>
       </main>

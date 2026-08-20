@@ -51,6 +51,60 @@ export default function Home() {
       {/* Hero Section */}
       <Hero />
 
+      {/* DIWASI Volunteer Program Intro */}
+      <section className="section-container">
+        <span
+          className="reveal"
+          style={{
+            display: "block",
+            textAlign: "center",
+            color: "var(--accent-hover)",
+            fontWeight: 700,
+            fontSize: "13px",
+            letterSpacing: "2px",
+            textTransform: "uppercase",
+            marginBottom: "12px",
+          }}
+        >
+          DIWASI Volunteer Program
+        </span>
+        <h2 className="section-title reveal">Live. Volunteer. Experience Sri Lanka.</h2>
+        <p className="section-subtitle reveal" style={{ marginBottom: "16px" }}>
+          More than just volunteering, your stay is an opportunity to experience Sri Lanka through the eyes of a local family. Stay in our welcoming volunteer villa, share everyday moments with a Sri Lankan family, take part in meaningful community activities, and discover the culture, food, traditions, and natural beauty of Sri Lanka.
+        </p>
+        <p
+          className="reveal"
+          style={{
+            textAlign: "center",
+            fontWeight: 700,
+            fontSize: "18px",
+            color: "var(--dark)",
+            maxWidth: "600px",
+            margin: "0 auto 50px auto",
+          }}
+        >
+          You won&apos;t just visit Sri Lanka. You&apos;ll become part of it.
+        </p>
+
+        <div className="features-grid">
+          <div className="feature-card reveal">
+            <span style={{ fontSize: "36px", display: "block", marginBottom: "10px" }}>🏡</span>
+            <h3>Live Like a Local</h3>
+            <p>Stay in a peaceful home environment and experience genuine Sri Lankan hospitality.</p>
+          </div>
+          <div className="feature-card reveal">
+            <span style={{ fontSize: "36px", display: "block", marginBottom: "10px" }}>🤝</span>
+            <h3>Make a Difference</h3>
+            <p>Take part in community-based volunteer activities where your time and effort can have a meaningful impact.</p>
+          </div>
+          <div className="feature-card reveal">
+            <span style={{ fontSize: "36px", display: "block", marginBottom: "10px" }}>🌴</span>
+            <h3>Discover Sri Lanka</h3>
+            <p>Experience local culture, food, traditions, nature and everyday life beyond the typical tourist route.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Why Join DIWASI (Foundational Pillars) */}
       <section className="section-container">
         <h2 className="section-title reveal">Why Join With Us?</h2>
@@ -177,6 +231,32 @@ export default function Home() {
             Open Full Image Gallery
           </Link>
         </div>
+      </section>
+
+      {/* Are You Looking for More Than a Holiday? */}
+      <section className="section-container reveal" style={{ textAlign: "center", maxWidth: "700px" }}>
+        <h2 className="section-title reveal">Are You Looking for More Than a Holiday?</h2>
+        <div style={{ fontSize: "17px", lineHeight: "1.9", color: "var(--gray-700)" }}>
+          <p>Maybe you&apos;re travelling alone.</p>
+          <p>Maybe you want to meet new people.</p>
+          <p>Maybe you want to experience another culture.</p>
+          <p>Maybe you simply want to do something meaningful with your time.</p>
+          <p>Or maybe you&apos;re looking for a fresh start and a different perspective.</p>
+        </div>
+        <p style={{ fontWeight: 700, fontSize: "20px", color: "var(--primary)", margin: "30px 0" }}>
+          Sri Lanka is waiting.
+        </p>
+        <p style={{ fontSize: "18px", fontWeight: 600, lineHeight: "1.8", color: "var(--dark)" }}>
+          Come volunteer.<br />
+          Come live with a local family.<br />
+          Come experience something real.
+        </p>
+        <p style={{ margin: "20px 0 30px 0", fontSize: "16px", color: "var(--gray-600)" }}>
+          Your journey could start here.
+        </p>
+        <Link href="/apply" className="btn-cta">
+          Start Your Journey
+        </Link>
       </section>
 
       {/* Find Purpose CTA Section */}
