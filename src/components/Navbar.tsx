@@ -388,7 +388,13 @@ export default function Navbar({ currentPage }: NavbarProps) {
             text-shadow: 0 0 1px rgba(0, 128, 128, 0.1);
           }
 
-          /* Dropdown group trigger (Desktop) */
+          /* Dropdown group trigger (Desktop only). Scoped behind a
+             min-width query so :hover/:focus-within never fight the
+             mobile accordion's open/close state below — tapping the
+             mobile toggle focuses a descendant, which used to trigger
+             this desktop flyout's absolute-position transform underneath
+             the accordion panel and shove it off-screen. */
+          @media (min-width: 961px) {
           .site-header .nav-dropdown {
             position: relative;
           }
@@ -489,6 +495,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
             background: rgba(0, 128, 128, 0.07);
             color: var(--primary);
           }
+          } /* end @media (min-width: 961px) — desktop dropdown flyout */
 
           /* Premium action button for Volunteer Application (Desktop) */
           .site-header .nav-link-apply {
@@ -631,6 +638,14 @@ export default function Navbar({ currentPage }: NavbarProps) {
               box-shadow: 0 4px 20px rgba(0, 80, 80, 0.08) !important;
             }
 
+            /* Notch clearance on top; keep the toggle close to the right
+               edge horizontally (just enough for the rounded corners). */
+            .site-header .nav-container {
+              padding-top: calc(18px + env(safe-area-inset-top));
+              padding-right: calc(8px + env(safe-area-inset-right));
+              padding-left: calc(18px + env(safe-area-inset-left));
+            }
+
             /* Dim and disable interaction with the background logo when menu is open */
             .site-header.menu-open .logo {
               opacity: 0.15;
@@ -712,10 +727,11 @@ export default function Navbar({ currentPage }: NavbarProps) {
               justify-content: space-between;
               align-items: stretch;
               gap: 0;
-              padding: 95px 24px 30px 24px;
+              padding: 95px calc(24px + env(safe-area-inset-right)) calc(30px + env(safe-area-inset-bottom)) 24px;
               transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
               z-index: 1080;
               overflow-y: auto;
+              overflow-x: hidden;
               margin: 0;
               list-style: none;
             }
@@ -801,6 +817,7 @@ export default function Navbar({ currentPage }: NavbarProps) {
             /* Mobile Dropdown Groups: expandable accordions */
             .site-header .nav-menu .nav-dropdown {
               width: 100%;
+              min-width: 0;
             }
 
             .site-header .nav-dropdown-trigger {
@@ -859,6 +876,11 @@ export default function Navbar({ currentPage }: NavbarProps) {
               background: none;
               padding: 0;
               margin: 2px 0 0 0;
+              /* Override the desktop dropdown's absolute-positioning sizing
+                 (min-width: 210px) so the accordion can't grow wider than
+                 the drawer and bleed out past its left edge. */
+              width: 100%;
+              min-width: 0;
             }
 
             .site-header .nav-dropdown-menu.open {
@@ -867,11 +889,13 @@ export default function Navbar({ currentPage }: NavbarProps) {
 
             .site-header .nav-dropdown-menu-inner {
               overflow: hidden;
+              min-width: 0;
             }
 
             .site-header .nav-dropdown-menu .nav-link {
               padding-left: 46px;
               font-size: 14.5px;
+              white-space: normal;
             }
 
             /* Mobile Volunteer CTA Button override */

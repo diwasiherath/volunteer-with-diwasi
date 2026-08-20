@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -45,6 +45,15 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  // Lets fixed/sticky UI reach behind the Dynamic Island and home indicator
+  // so we can pad it correctly with safe-area-inset-* instead of leaving a gap.
+  viewportFit: "cover",
+  themeColor: "#008080",
 };
 
 export const jsonLd = {

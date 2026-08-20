@@ -146,8 +146,8 @@ export default function Footer() {
           /* Premium Circular Scroll Button */
           .scroll-progress-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: calc(30px + env(safe-area-inset-bottom));
+            right: calc(30px + env(safe-area-inset-right));
             width: 52px;
             height: 52px;
             border-radius: 50%;

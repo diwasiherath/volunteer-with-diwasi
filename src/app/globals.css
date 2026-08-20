@@ -49,6 +49,10 @@ html {
   box-sizing: border-box;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   background-color: var(--light);
   color: var(--dark);
@@ -59,6 +63,13 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove the ~300ms tap delay and grey flash on touch devices, keep it off
+   text so selection/long-press still works where it should. */
+a, button, input[type="submit"], input[type="button"], [role="button"] {
+  touch-action: manipulation;
 }
 
 /* Scrollbar styles */
@@ -366,7 +377,8 @@ textarea {
   border-radius: var(--border-radius-sm);
   border: 1px solid var(--gray-300);
   font-family: var(--font-sans);
-  font-size: 15px;
+  /* 16px minimum stops iOS Safari from auto-zooming the page on focus */
+  font-size: 16px;
   color: var(--dark);
   background-color: var(--white);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
@@ -724,7 +736,7 @@ textarea:user-valid {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: calc(15px + env(safe-area-inset-top)) calc(20px + env(safe-area-inset-right)) 15px calc(20px + env(safe-area-inset-left));
   position: relative;
 }
 
@@ -1281,8 +1293,8 @@ textarea:user-valid {
   background-color: var(--white);
   color: var(--dark);
   border: none;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   font-size: 22px;
   cursor: pointer;
@@ -1500,6 +1512,15 @@ textarea:user-valid {
   .contact-wrapper {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-pane {
+    padding: 20px;
+  }
+  .form-pane iframe {
+    height: 600px;
   }
 }
 
@@ -1853,8 +1874,8 @@ textarea:user-valid {
   right: 20px;
   background-color: var(--light);
   border: none;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   font-size: 22px;
   font-weight: bold;
@@ -2610,7 +2631,7 @@ textarea:user-valid {
   border: 1px solid rgba(0, 128, 128, 0.15);
   background: var(--white);
   font-family: inherit;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--dark);
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 80, 80, 0.02);
@@ -2918,7 +2939,7 @@ textarea:user-valid {
   padding: 10px 20px;
   border-radius: 30px;
   border: 1px solid rgba(0, 128, 128, 0.2);
-  font-size: 14.5px;
+  font-size: 16px;
 }
 
 .newsletter-form button {
